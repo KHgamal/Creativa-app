@@ -14,33 +14,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<SplashScreen> {
+  // ignore: unused_field
   late Timer _timer;
   bool _visible = true;
-  bool finishFading= false;
+  bool finishFading = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _timer = Timer.periodic(const Duration(seconds:2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       setState(() {
-        finishFading=true;
+        finishFading = true;
       });
-
-  });
-    Future.delayed(const Duration(seconds:1), () {
+    });
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _visible = !_visible;
       });
     });
-
-}
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-   return SafeArea(
-     child: Scaffold(
-        body:Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -48,38 +46,49 @@ class SplashScreenState extends State<SplashScreen> {
               child: AnimatedOpacity(
                 // If the widget is visible, animate to 0.0 (invisible).
                 // If the widget is hidden, animate to 1.0 (fully visible).
-                opacity: _visible ? 0:1  ,
+                opacity: _visible ? 0 : 1,
                 duration: const Duration(milliseconds: 1000),
-                child:Padding(
+                child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset('assets/images/Logo.png'),
                 ),
               ),
             ),
-            finishFading ? Column(
-              children: [
-                const SizedBox(
-                  height: 50,
-                ),
-                SubmitButton(text: "Student", onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(
-                    builder: (context) => const ReplacementLoginScreen())), color1: Colors.transparent,
-                    border: Border.all(color:amber , width: 2.5) , textColor:const Color(0xff043a78)
-                    ,color2: Colors.transparent, width: size.width*0.7),
-                const SizedBox(
-                  height: 30,
-                ),
-                SubmitButton(text: "Instructor", onPressed: (){}, color1: Colors.transparent,
-                    border: Border.all(color:amber , width: 2.5) , textColor:const Color(0xff043a78)
-                    ,color2: Colors.transparent, width: size.width*0.7),
-              ],
-            ): const SizedBox()
+            finishFading
+                ? Column(
+                    children: [
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      SubmitButton(
+                          text: "Student",
+                          onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ReplacementLoginScreen())),
+                          color1: Colors.transparent,
+                          border: Border.all(color: amber, width: 2.5),
+                          textColor: const Color(0xff043a78),
+                          color2: Colors.transparent,
+                          width: size.width * 0.7),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      SubmitButton(
+                          text: "Instructor",
+                          onPressed: () {},
+                          color1: Colors.transparent,
+                          border: Border.all(color: amber, width: 2.5),
+                          textColor: const Color(0xff043a78),
+                          color2: Colors.transparent,
+                          width: size.width * 0.7),
+                    ],
+                  )
+                : const SizedBox()
           ],
-        ) ,
-     ),
-   );
+        ),
+      ),
+    );
   }
-
 }
-
-
