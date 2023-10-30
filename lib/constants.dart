@@ -23,7 +23,6 @@ List<Map<String, String>> courseInfo = [
     'Title': 'Front End',
     'Description':
         'For all those interested in the field of programming and want to take an influential step in their professional lives.The program will help you learn the basics of Front-end Development'
-
            ,
     'Duration': '20 days in 2 months'
   },
@@ -45,6 +44,25 @@ List<Map<String, String>> courseInfo = [
         'We offer all people who work Freelance in electronic marketing, as well as those who decided to become their field of work and cannot decide how to start!',
     'Duration': '6 days in a Week'
   }
+];
+
+List<Map<String, String>> tasksInfo = [
+  {
+    'Title': 'Task_1',
+    'deadline': '30-10-2023',
+    'status':'finished'
+  },
+  {
+    'Title': 'Task_2',
+    'deadline': '15-11-2023',
+    'status':'unfinished'
+  },
+  {
+    'Title': 'Task_3',
+    'deadline': '11-11-2023',
+    'status':'unfinished'
+  },
+
 ];
 
 var icons = [
