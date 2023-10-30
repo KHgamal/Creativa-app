@@ -14,6 +14,7 @@ class _ProfileContainerState extends State<ProfileContainer> {
   bool value = false;
   int selectedIndex = 0;
   bool iconTapped = false;
+  bool enable = false;
   @override
   Widget build(BuildContext context) {
     /*showContent(index) {
@@ -25,10 +26,40 @@ class _ProfileContainerState extends State<ProfileContainer> {
 
     //var size = MediaQuery.of(context).size;
     return Container(
-      height: 70,
-      padding: EdgeInsets.zero,
-      // color: isDarkMode ? Colors.white : Colors.black,
-      child: Row(
+        height: 70,
+        padding: EdgeInsets.zero,
+        // color: isDarkMode ? Colors.white : Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 12.0),
+          child: TextFormField(
+            initialValue: widget.text,
+            enabled: enable,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    enable ? enable = false : enable = true;
+                  });
+                },
+                icon: enable
+                    ? Icon(
+                        Icons.check,
+                        color: blue,
+                      )
+                    : Icon(
+                        Icons.edit,
+                        color: blue,
+                      ),
+              ),
+              prefixIcon: Icon(
+                widget.icon,
+                color: blue,
+              ),
+            ),
+          ),
+        )
+        /*Row(
         children: [
           Padding(
             padding: const EdgeInsets.only(
@@ -49,8 +80,8 @@ class _ProfileContainerState extends State<ProfileContainer> {
             ),
           ),
         ],
-      ),
-    );
+      ),*/
+        );
     /*Container(
       width: size.width * 0.75,
       // height: 65,
