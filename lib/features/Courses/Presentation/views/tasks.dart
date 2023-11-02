@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../constants.dart';
 import '../widgets/tasks_container.dart';
 class TasksView extends StatelessWidget {
-  const TasksView({Key? key}) : super(key: key);
+  const TasksView({Key? key, required this.title,required this.image}) : super(key: key);
+  final String title;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +14,9 @@ class TasksView extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(200),
           child: AppBar(
-            title: const Text("Front End" , style: TextStyle(color :Colors.black),),
-            flexibleSpace: const Image(
-              image: AssetImage('assets/images/course1.jpg'),
+            title:  Text(title , style: const TextStyle(color :Colors.black),),
+            flexibleSpace:  Image(
+              image: AssetImage(image),
               fit: BoxFit.fitWidth,
             ),
             backgroundColor: Colors.transparent,

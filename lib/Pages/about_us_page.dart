@@ -17,46 +17,38 @@ class AboutUs extends StatelessWidget {
     ];
     return SafeArea(
       child: Scaffold(
-        extendBody: true,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Image.asset('assets/images/bg.jpg'),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 10, top: 10),
-                            child: Text("ABOUT CREATIVA",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20)),
-                          ),
-                          const Text(
-                            "Creativa is a national initiative launched by MCIT with the aim of"
-                            " promoting the new technology support standard for youth in Egypt."
-                            " The initiative bridges the gap between technology skills and on the"
-                            " ground requirements from the market. ",
-                            style:
-                                TextStyle(color: Colors.white70, fontSize: 12),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text('Learn more'),
-                            ),
-                          ),
-                        ],
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Image.asset("assets/images/Logo.png"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 8, bottom: 12),
+                child: IntrinsicHeight(
+                  child: Row(
+                    children: [
+                      VerticalDivider(
+                        color: blue,
+                        thickness: 3,
                       ),
-                    ),
-                  )
-                ],
+                      Text("About Creativa",
+                          style: TextStyle(color: blue, fontSize: 15))
+                    ],
+                  ),
+                ),
+              ),
+              const Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 12),
+                child:  Text(
+                          "Creativa is a national initiative launched by MCIT with the aim of"
+                          " promoting the new technology support standard for youth in Egypt."
+                          " The initiative bridges the gap between technology skills and on the"
+                          " ground requirements from the market. ",
+                          style:
+                              TextStyle( fontSize:15),
+                        ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 8, bottom: 8),
@@ -183,7 +175,8 @@ class AboutUs extends StatelessWidget {
                             ),
                           ),
                         )),
-              )
+              ),
+              const SizedBox(height: 12,)
             ],
           ),
         ),
